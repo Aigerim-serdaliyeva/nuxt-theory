@@ -1,29 +1,38 @@
 <template>
   <section>
     <h1>Login</h1>
-    <form>
+    <form @submit.prevent="onSubmit">
       <div class="form-group">
-        <label for="exampleInputEmail1">Email address</label>
         <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
-        <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
       </div>
       <div class="form-group">
-        <label for="exampleInputPassword1">Password</label>
         <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
-      </div>
-      <div class="form-group form-check">
-        <input type="checkbox" class="form-check-input" id="exampleCheck1">
-        <label class="form-check-label" for="exampleCheck1">Check me out</label>
       </div>
       <button type="submit" class="btn btn-primary">Submit</button>
     </form>
-    <nuxt-link to="/">Home</nuxt-link>
+    <!-- <nuxt-link to="/">Home</nuxt-link> -->
   </section>
 </template>
 
 
 <script>
 export default {
-  layout: "empty"
+  layout: "empty",
+  methods: {
+    onSubmit() {
+      this.$store.dispatch('login')
+      this.$router.push('/')
+    }
+  }
 }
 </script>
+
+<style scoped>
+  section {
+    width: 500px;
+    margin: 0 auto;
+  }
+  form {
+    margin-bottom: 30px;
+  }
+</style>
