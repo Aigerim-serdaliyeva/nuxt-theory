@@ -1,9 +1,9 @@
 <template>
   <section class="container">
-    <h2>{{ pageTitle }}</h2>
+    <h2 class="text-regal-blue">{{ pageTitle }}</h2>
     <ul>
       <li @click="goTo(user)" v-for="user in users" :key="user.id">
-        <a href="#">{{user.name}} ({{user.email}})</a>
+        <a href="#" class="text-indigo-red">{{user.name}} ({{user.email}})</a>
       </li>
     </ul>
   </section>
